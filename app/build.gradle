@@ -57,4 +57,7 @@ dependencies {
 
     // menu
     implementation 'com.google.android.material:material:1.0.0'
+
+    // 네이버 아이디로 로그인
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
 }
