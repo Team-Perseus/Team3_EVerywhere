@@ -13,7 +13,7 @@
 
     //로딩화면 관련 코드---------------------------------------------------
     <style name="IntroTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_logo</item>
+       <item name="android:windowBackground">@drawable/splash_logo</item>
     </style>
     //-------------------------------------------------------------------
 </resources>

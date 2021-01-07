@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">EVerywhere</string>
-    <string name="splash_logo">TODO</string>
+    <string name="splash_logo">logo</string>
+
+    //네이버 API(네아로) 관련 코드
+    <string name="naver_client_id">Ps6u6aQD0DWvw8Y7mERB</string>
+    <string name="naver_client_secret">gbnKnK0GYI"</string>
+    <string name="naver_client_name">EVerywhere"</string>
 </resources>

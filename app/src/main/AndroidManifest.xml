@@ -15,13 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NaverMap"></activity>
+
+        <activity android:name=".NaverLoginAPI"></activity>
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/IntroTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,12 +30,8 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="57doq5pyf4" />
-        <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="ea9d3fb4d0e2c299973581d14791e836" />
 
         <activity android:name=".MainActivity">
-
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

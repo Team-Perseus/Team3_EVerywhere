@@ -41,23 +41,22 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
-    //네이버지도 API 관련 코드--------------------
+
+    //네이버 API(지도, 네아로) 관련 코드--------------------------
     implementation 'com.naver.maps:map-sdk:3.7.1'
-    //-------------------------------------------
 
-    //카카오지도 API 관련 코드-------------------------------
-    compile files('libs/libDaumMapAndroid.jar')
-
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/libDaumMapAndroid.jar')
-    //-----------------------------------------------------
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
+    def android_x_version = "1.0.0"
+    implementation "androidx.appcompat:appcompat:$android_x_version"
+    implementation "androidx.legacy:legacy-support-core-utils:$android_x_version"
+    implementation "androidx.browser:browser:$android_x_version"
+    implementation "androidx.legacy:legacy-support-v4:$android_x_version"
+    //----------------------------------------------------------
 
     // menu
     implementation 'com.google.android.material:material:1.0.0'
 
-    // 네이버 아이디로 로그인
-    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

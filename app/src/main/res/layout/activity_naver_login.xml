@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NaverMap">
+    tools:context=".NaverLoginAPI">
 
     <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-        android:id="@+id/buttonOAuthLoginImg"
+        android:id="@+id/btn_naver_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        tools:ignore="MissingConstraints" />
-
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="483dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

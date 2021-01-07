@@ -1,5 +1,6 @@
 package com.example.everywhere
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +23,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.jar.Manifest
 
 
-class MainActivity : AppCompatActivity(), OnMapReadyCallback {
+class MainActivity : AppCompatActivity(),
+    OnMapReadyCallback,
+    NavigationView.OnNavigationItemSelectedListener {
     private val LOG_TAG = "MainActivity"
     private val LOCATION_PERMISSION_REQUEST_CODE = 100
     private val PERMISSIONS = arrayOf<String>(
@@ -45,10 +48,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             ?: MapFragment.newInstance().also {
                 fm.beginTransaction().add(R.id.map_view, it).commit()
             }
+
         navi_button.setOnClickListener {
             layout_drawer.openDrawer(GravityCompat.START) // START:left, END:right 랑 같은 말
         }
-            mapFragment.getMapAsync(this)
+        navi_view.setNavigationItemSelectedListener(this)
+        mapFragment.getMapAsync(this)
     }
 
     override fun onMapReady(naverMap: NaverMap) {
@@ -66,11 +71,15 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         ActivityCompat.requestPermissions(this, PERMISSIONS, LOCATION_PERMISSION_REQUEST_CODE)
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        if(requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 mNaverMap.locationTrackingMode = LocationTrackingMode.Follow
             }
         }
@@ -84,5 +93,21 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        var id = item.itemId
+        var intent: Intent? = null
 
+        if(id == R.id.item_login) {
+            intent = Intent(this, NaverLoginAPI::class.java)
+            startActivity(intent)
+        } else if(id == R.id.item_bookmark) {
+
+        } else if(id == R.id.item_location) {
+
+        }
+
+        var drawer = layout_drawer
+        drawer.closeDrawer(GravityCompat.START)
+        return true
+    }
 }

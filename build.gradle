@@ -21,8 +21,6 @@ allprojects {
 
         //네이버지도 API 관련 코드
         maven {url 'https://navercorp.bintray.com/maps'}
-        //카카오지도 API 관련 코드
-        maven{url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 
