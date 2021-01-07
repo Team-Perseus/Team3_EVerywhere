@@ -1,7 +1,5 @@
 package com.example.everywhere
 
-import org.json.JSONException
-import org.json.JSONObject
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
@@ -14,16 +12,16 @@ class NaverSearchAPI {
     private val clientId = "OMDAUElxYukmn7Cm598R" //애플리케이션 클라이언트 아이디값"
     private val clientSecret = "pOtvpBHgOW" //애플리케이션 클라이언트 시크릿값"
 
-    fun main(args: Array<String>) {
+    fun main() {
         var text: String? = null
 
         text = try {
-            URLEncoder.encode("그린팩토리", "UTF-8")
+            URLEncoder.encode("홍대 전기차", "UTF-8")
         } catch (e: UnsupportedEncodingException) {
             throw RuntimeException("검색어 인코딩 실패", e)
         }
 
-        val apiURL = "https://openapi.naver.com/v1/search/blog?query=$text" // json 결과
+        val apiURL = "https://openapi.naver.com/v1/search/local?query=$text" // json 결과
         //val apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text // xml 결과
 
         val requestHeaders: HashMap<String, String> = HashMap()
