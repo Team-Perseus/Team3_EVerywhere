@@ -5,7 +5,11 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.SearchEvent
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
@@ -15,6 +19,9 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.util.FusedLocationSource
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity(),
@@ -30,13 +37,11 @@ class MainActivity : AppCompatActivity(),
     private lateinit var mLocationSource: FusedLocationSource
     private lateinit var mNaverMap: NaverMap
 
-    //private var mBackWait: Long = 0
-    //private lateinit var mLayout: Snackbar
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //네이버 지도 생성 코드
         val fm = supportFragmentManager
         val mapFragment = fm.findFragmentById(R.id.map_view) as MapFragment?
             ?: MapFragment.newInstance().also {
@@ -44,12 +49,19 @@ class MainActivity : AppCompatActivity(),
             }
         mapFragment.getMapAsync(this)
 
+        //네비게이션바 코드
         navi_button.setOnClickListener {
             layout_drawer.openDrawer(GravityCompat.START) // START:left, END:right 랑 같은 말
         }
         navi_view.setNavigationItemSelectedListener(this)
 
+        //검색 버튼 코드
+        search_view.setOnClickListener {
+            var searchIntent = Intent(this, SearchActivity::class.java)
+            startActivity(searchIntent)
+        }
 
+        Timber.plant(Timber.DebugTree())
     }
 
     override fun onMapReady(naverMap: NaverMap) {
@@ -106,4 +118,6 @@ class MainActivity : AppCompatActivity(),
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 }
