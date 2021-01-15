@@ -30,11 +30,6 @@ class NaverLoginAPI : AppCompatActivity() {
     val mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {
         override fun run(success: Boolean) {
             if (success) {
-                //val accessToken: String = mOAuthLoginModule.getAccessToken(baseContext)
-                //val refreshToken: String = mOAuthLoginModule.getRefreshToken(baseContext)
-                //val expiresAt: Long = mOAuthLoginModule.getExpiresAt(baseContext)
-                //val tokenType: String = mOAuthLoginModule.getTokenType(baseContext)
-                //var intent = Intent(this, )
             } else {
                 val errorCode: String = mOAuthLoginInstance.getLastErrorCode(mContext).code
                 val errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext)

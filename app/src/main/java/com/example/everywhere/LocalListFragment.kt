@@ -61,18 +61,4 @@ class LocalListFragment : Fragment() {
     fun notifyDataSetChanged() {
         localAdapter.notifyDataSetChanged()
     }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LocalListFragment().apply {
-                arguments = Bundle().apply {}
-            }
-    }
-
-    fun finishFragment() {
-        val fragmentManager: FragmentManager = activity!!.supportFragmentManager
-        fragmentManager.beginTransaction().remove(this).commit()
-        fragmentManager.popBackStack()
-    }
 }

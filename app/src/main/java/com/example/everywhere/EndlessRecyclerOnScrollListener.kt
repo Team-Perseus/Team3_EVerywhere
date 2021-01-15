@@ -4,7 +4,6 @@ package com.example.everywhere
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
 abstract class EndlessRecyclerOnScrollListener : RecyclerView.OnScrollListener() {
     private var mPreviousTotal = 0
     private var mLoading = true

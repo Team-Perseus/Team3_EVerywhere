@@ -12,6 +12,8 @@
         android:layout_height="50dp"
         android:iconifiedByDefault="false"
         android:queryBackground="@null"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
         android:queryHint="충전소를 검색하세요."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

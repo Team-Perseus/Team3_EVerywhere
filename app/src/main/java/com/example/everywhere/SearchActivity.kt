@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.everywhere.models.Document
 import com.google.gson.Gson
@@ -17,25 +18,32 @@ open class SearchActivity : AppCompatActivity(),
     SearchLocalConstants.View {
 
     private val localListFragment: LocalListFragment by lazy { LocalListFragment() }
-    var presenter: SearchLocalConstants.Presenter =
-        SearchLocalPresenter(this)
+    var presenter: SearchLocalConstants.Presenter = SearchLocalPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        search_view.setOnClickListener { view ->
+
+        /*search_view.setOnClickListener { view ->
             val searchStr = search_view.query.toString()
             this.hideKeyboard(view)
             searchText(searchStr)
-        }
+        }*/
+        search_view.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val searchStr = search_view.query.toString()
+                searchText(searchStr)
+                return true
+            }
+        })
         val localAdapter = RecyclerAdapter(presenter.getLocalArrList())
         localAdapter.setOnItemClickListener(object :
             RecyclerAdapter.ItemClickListener {
             override fun onClick(view: View, data: Document) {
-                val bundle = Bundle()
-                val jsonBody = Gson().toJson(data)
-                bundle.putString("body", jsonBody)
-                localListFragment.arguments = bundle
             }
         })
         localListFragment.presenter = presenter
@@ -60,8 +68,7 @@ open class SearchActivity : AppCompatActivity(),
     }
 
     fun Context.hideKeyboard(view: View) {
-        val inputMethodManager =
-            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
