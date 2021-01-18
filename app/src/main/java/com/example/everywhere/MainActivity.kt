@@ -25,8 +25,7 @@ import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity(),
-    OnMapReadyCallback,
-    NavigationView.OnNavigationItemSelectedListener {
+    OnMapReadyCallback {
     private val LOG_TAG = "MainActivity"
     private val LOCATION_PERMISSION_REQUEST_CODE = 100
     private val PERMISSIONS = arrayOf<String>(
@@ -48,12 +47,6 @@ class MainActivity : AppCompatActivity(),
                 fm.beginTransaction().add(R.id.map_view, it).commit()
             }
         mapFragment.getMapAsync(this)
-
-        //네비게이션바 코드
-        navi_button.setOnClickListener {
-            layout_drawer.openDrawer(GravityCompat.START) // START:left, END:right 랑 같은 말
-        }
-        navi_view.setNavigationItemSelectedListener(this)
 
         //검색 버튼 코드
         search_view.setOnClickListener {
@@ -99,24 +92,6 @@ class MainActivity : AppCompatActivity(),
         } else {
             super.onBackPressed()
         }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        var id = item.itemId
-        var intent: Intent? = null
-
-        if(id == R.id.item_login) {
-            intent = Intent(this, NaverLoginAPI::class.java)
-            startActivity(intent)
-        } else if(id == R.id.item_bookmark) {
-
-        } else if(id == R.id.item_location) {
-
-        }
-
-        var drawer = layout_drawer
-        drawer.closeDrawer(GravityCompat.START)
-        return true
     }
 
 
