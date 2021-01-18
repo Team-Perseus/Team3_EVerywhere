@@ -38,20 +38,30 @@
             app:layout_constraintVertical_bias="0.011" /> -->
 
         <ImageView
+            android:id="@+id/search_view"
+            android:layout_width="250dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/search_box" />
+
+        <ImageView
             android:id="@id/search_view"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="85dp"
             android:layout_marginRight="85dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/search" />
+            app:srcCompat="@drawable/icon_search" />
 
         <ImageView
             android:id="@+id/bookmark"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="32dp"
@@ -61,14 +71,25 @@
 
         <ImageView
             android:id="@+id/notification"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/notification" />
+
+        <ImageView
+            android:id="@+id/filter"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="97dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/filter" />
 
         <com.naver.maps.map.widget.CompassView
             android:id="@+id/compass"
