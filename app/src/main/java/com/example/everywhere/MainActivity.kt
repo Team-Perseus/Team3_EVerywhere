@@ -68,6 +68,9 @@ class MainActivity : AppCompatActivity(),
         var uiSettings = mNaverMap.uiSettings
         uiSettings.isZoomControlEnabled = false
         uiSettings.isLocationButtonEnabled = true
+        uiSettings.isCompassEnabled = false
+
+        compass.map = naverMap
 
         ActivityCompat.requestPermissions(this, PERMISSIONS, LOCATION_PERMISSION_REQUEST_CODE)
     }
