@@ -15,10 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".SearchActivity"/>
+        <activity android:name=".BookmarkActivity" />
+        <activity android:name=".SearchActivity" />
         <activity android:name=".NaverLoginAPI" />
-
         <activity
             android:name=".SplashActivity"
             android:theme="@style/IntroTheme">
@@ -28,8 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

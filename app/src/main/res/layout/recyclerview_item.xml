@@ -48,6 +48,7 @@
         android:layout_marginRight="30dp"
         android:button="@drawable/selector_bookmark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:checked="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

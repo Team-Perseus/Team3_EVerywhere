@@ -3,6 +3,7 @@ package com.example.everywhere
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -26,22 +27,13 @@ open class SearchActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        /*star_bookmark.setOnClickListener(object: View.OnClickListener {
-            var isDefault=true
-            override fun onClick(v: View?) {
-                isDefault=!isDefault
-                if(isDefault) star_bookmark.setImageResource(R.drawable.star_bookmark1)
-                else star_bookmark.setImageResource(R.drawable.star_bookmark2)
-            }
+        /* val nextIntent= Intent(this, BookmarkActivity::class.java)
+        nextIntent.putExtra("bookmark", "btn_bookmark")
+        startActivity(nextIntent)
 
-        })*/
+        //저장된 데이터 로드
+        loadData() */
 
-
-        /*search_view.setOnClickListener { view ->
-            val searchStr = search_view.query.toString()
-            this.hideKeyboard(view)
-            searchText(searchStr)
-        }*/
         search_view.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 TODO("Not yet implemented")
@@ -105,8 +97,23 @@ open class SearchActivity : AppCompatActivity(),
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 
-    /*fun star_click(view: View?) {
-        val imageView: ImageView = findViewById(R.id.star_bookmark) as ImageView
-        imageView.setImageResource(R.drawable.star_bookmark2)
-    }*/
+
+    /* private fun loadData(){
+        val pref=getSharedPreferences("pref", 0)
+        btn_bookmark.isChecked=pref.getBoolean("checked", false)
+    }
+
+    override fun onDestroy() { // 액티비티 종료될 때 호출
+        super.onDestroy()
+
+        saveData()
+    }
+
+    private fun saveData(){
+        val pref=getSharedPreferences("pref", 0)
+        val edit=pref.edit() //수정모드
+        edit.putBoolean("checked", btn_bookmark.isChecked)
+        edit.apply() //값을 저장
+    } */
+
 }

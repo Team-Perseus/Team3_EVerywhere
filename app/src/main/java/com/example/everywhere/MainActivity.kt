@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        bookmark.setOnClickListener {
+            val intent=Intent(this, BookmarkActivity::class.java)
+            startActivity(intent)
+        }
+
         //네이버 지도 생성 코드
         val fm = supportFragmentManager
         val mapFragment = fm.findFragmentById(R.id.map_view) as MapFragment?
