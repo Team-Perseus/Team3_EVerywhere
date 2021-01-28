@@ -14,6 +14,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.everywhere.models.Document
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_bookmark.*
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.recyclerview_item.*
 
@@ -26,6 +27,12 @@ open class SearchActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        /* btn_bookmark.setOnClickListener{
+            send_recyclerview.text=""
+            if(btn_bookmark.isChecked)
+                send_recyclerview.append("체크 박스 확인")
+        }*/
 
         /* val nextIntent= Intent(this, BookmarkActivity::class.java)
         nextIntent.putExtra("bookmark", "btn_bookmark")

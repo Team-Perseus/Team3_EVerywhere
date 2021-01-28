@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/location_icon" />
 
     <CheckBox
-        android:id="@+id/btn_bookmark"
+        android:id="@+id/cb_bookmark"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="9dp"

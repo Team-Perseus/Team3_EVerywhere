@@ -1,9 +1,11 @@
 package com.example.everywhere
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.everywhere.models.Document
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
@@ -29,6 +31,12 @@ class RecyclerAdapter constructor(private var items : ArrayList<Document>) : Rec
         }
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, items[position])
+        }
+        holder.itemView.setOnClickListener{
+            val intent= Intent(holder.itemView?.context, BookmarkActivity::class.java)
+            intent.putExtra("content", "ImageView")
+            intent.putExtra("no", 111)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
     }
 
