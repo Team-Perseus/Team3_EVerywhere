@@ -17,7 +17,8 @@ class BookmarkActivity : AppCompatActivity() {
         else{
             tv_item_addressname.text=intent.getStringExtra("bookmark")
         } */
-        val no=intent.getStringExtra("no")
+
+        /* val no=intent.getStringExtra("no")*/
 
 
     }

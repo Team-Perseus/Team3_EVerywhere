@@ -32,12 +32,12 @@ class RecyclerAdapter constructor(private var items : ArrayList<Document>) : Rec
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, items[position])
         }
-        holder.itemView.setOnClickListener{
+        /* holder.itemView.setOnClickListener{
             val intent= Intent(holder.itemView?.context, BookmarkActivity::class.java)
             intent.putExtra("content", "ImageView")
             intent.putExtra("no", 111)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
-        }
+        } */
     }
 
     fun setOnItemClickListener(itemClickListener: ItemClickListener) {
