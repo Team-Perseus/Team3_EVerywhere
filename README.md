@@ -16,4 +16,6 @@
 # Bookmark
  * loadData() 와 saveData() 로 데이터를 저장하여 앱을 재실행해도 값이 저장되어 표시됩니다.
  
-
+ 
+# Kakao Search
+ * kakao local API를 사용했습니다.
